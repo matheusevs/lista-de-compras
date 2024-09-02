@@ -6,6 +6,11 @@ const itensInput = document.getElementById("receber-item");
 const ulItens = document.getElementById("lista-de-itens");
 const ulItensComprados = document.getElementById("itens-comprados");
 
+function atualizarLocalStorage()
+{
+    localStorage.setItem('listaDeItens', JSON.stringify(listaDeItens));
+}
+
 form.addEventListener("submit", function (evento) {
     evento.preventDefault();
     salvarItem();
@@ -88,6 +93,9 @@ function mostrarItem(){
             mostrarItem();
         });
     });
+
+    atualizarLocalStorage();
+
 }
 
 function salvarEdicao() 
